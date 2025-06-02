@@ -4,7 +4,7 @@ services:
   frontend:
     image: ghcr.io/chirag1507/digital-kudos-wall-frontend:latest
     ports:
-      - "3000:3000" # Map host port 3000 to container port 3000 (frontend's internal port)
+      - "3000:80" # Map host port 3000 to container port 80 (Nginx default)
     # If the frontend needs to know the backend's URL via an env var in the future, add it here.
     # environment:
     #   - VITE_API_BASE_URL=http://backend:3001
