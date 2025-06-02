@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:smoke": "playwright test src/smoke/tests/"
+    "test:smoke": "playwright test src/smoke/tests/",
+    "test:acceptance": "playwright test src/acceptance/tests/"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.4.0",

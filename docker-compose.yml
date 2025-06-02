@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: ghcr.io/chirag1507/digital-kudos-wall-frontend:latest
+    ports:
+      - "3000:3000" # Map host port 3000 to container port 3000 (frontend's internal port)
+    # If the frontend needs to know the backend's URL via an env var in the future, add it here.
+    # environment:
+    #   - VITE_API_BASE_URL=http://backend:3001
+    depends_on:
+      - backend
+    networks:
+      - kudos_wall_network
+
+  backend:
+    image: ghcr.io/chirag1507/digital-kudos-wall-backend:latest
+    ports:
+      - "3001:3001" # Map host port 3001 to container port 3001 (backend's internal port)
+    environment:
+      # Assuming the backend listens on port 3001 internally.
+      # If it's configured by an env var like PORT, uncomment and set:
+      - PORT=3001
+      # Add any other necessary backend environment variables here
+      # e.g., - DATABASE_URL=...
+    networks:
+      - kudos_wall_network
+
+networks:
+  kudos_wall_network:
+    driver: bridge
