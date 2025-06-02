@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// Read base URL from environment variable, fallback to localhost for local dev
+const resolvedBaseURL = process.env.CI_BASE_URL || "http://localhost:3000";
+
 export default defineConfig({
   testDir: "./src",
   fullyParallel: true,
@@ -8,7 +11,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: resolvedBaseURL, // Use the dynamically resolved baseURL
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
