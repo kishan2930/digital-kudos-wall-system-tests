@@ -1,24 +1,44 @@
-import { defineConfig, devices } from "@playwright/test";
+import { PlaywrightTestConfig, devices } from "@playwright/test";
+import { CONFIG } from "./src/config/test.config";
 
-// Read base URL from environment variable, fallback to localhost for local dev
-const resolvedBaseURL = process.env.CI_BASE_URL || "http://localhost:3000";
-
-export default defineConfig({
+const config: PlaywrightTestConfig = {
   testDir: "./src",
+  timeout: 30000,
+  expect: {
+    timeout: 5000,
+  },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: "html",
+  reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: resolvedBaseURL, // Use the dynamically resolved baseURL
+    actionTimeout: 0,
+    baseURL: CONFIG.baseUrl,
     trace: "on-first-retry",
+    video: "retain-on-failure",
     screenshot: "only-on-failure",
   },
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+    },
+    {
+      name: "firefox",
+      use: {
+        ...devices["Desktop Firefox"],
+      },
+    },
+    {
+      name: "webkit",
+      use: {
+        ...devices["Desktop Safari"],
+      },
     },
   ],
-});
+};
+
+export default config;

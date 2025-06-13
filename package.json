@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:smoke": "playwright test src/smoke/tests/",
-    "test:acceptance": "playwright test src/acceptance/tests/"
+    "test:acceptance": "cucumber-js --format progress"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.4.0",
