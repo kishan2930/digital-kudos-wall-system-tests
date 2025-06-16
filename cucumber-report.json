@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 137224277
+              "duration": 139239193
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 98049600
+              "duration": 96568901
             }
           },
           {
@@ -59,7 +59,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 142951127
+              "duration": 148889034
             }
           },
           {
@@ -72,7 +72,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 2423887,
+              "duration": 2892131,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:57:38)"
             }
           },
@@ -94,7 +94,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 65463131
+              "duration": 35949703
             }
           }
         ],
@@ -118,7 +118,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 153997972
+              "duration": 126335941
             }
           },
           {
@@ -131,7 +131,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 91416948
+              "duration": 91870155
             }
           },
           {
@@ -144,8 +144,8 @@
             },
             "result": {
               "status": "failed",
-              "duration": 14429216,
-              "error_message": "Error: Failed to ensure user exists: Error: Failed to create test user via API. Status: 404, Body: {\"error\":\"Not Found\",\"message\":\"Route /api/v1/test-support/users not found\",\"timestamp\":\"2025-06-16T06:32:56.386Z\"}\n    at AccountRegistrationDSL.ensureUserExists (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/dsl/account_registration_dsl.ts:28:13)\n    at async CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:20:5)"
+              "duration": 15030616,
+              "error_message": "Error: Failed to ensure user exists: Error: Failed to create test user via API. Status: 404, Body: {\"error\":\"Not Found\",\"message\":\"Route /api/v1/test-support/users not found\",\"timestamp\":\"2025-06-16T08:15:33.704Z\"}\n    at AccountRegistrationDSL.ensureUserExists (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/dsl/account_registration_dsl.ts:28:13)\n    at async CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:20:5)"
             }
           },
           {
@@ -211,7 +211,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 24285048
+              "duration": 25983048
             }
           }
         ],
@@ -235,7 +235,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 127697270
+              "duration": 121430322
             }
           },
           {
@@ -267,7 +267,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 192494247
+              "duration": 190155299
             }
           },
           {
@@ -280,7 +280,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 525168
+              "duration": 432264
             }
           },
           {
@@ -293,7 +293,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 2243030,
+              "duration": 1822744,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -302,7 +302,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 22067270
+              "duration": 23089754
             }
           }
         ],
@@ -326,7 +326,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 129626812
+              "duration": 122662933
             }
           },
           {
@@ -358,7 +358,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 197737304
+              "duration": 197647921
             }
           },
           {
@@ -371,7 +371,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 343761
+              "duration": 296735
             }
           },
           {
@@ -384,7 +384,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 588879,
+              "duration": 525541,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -393,7 +393,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 21010622
+              "duration": 23690610
             }
           }
         ],
@@ -417,7 +417,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 125838614
+              "duration": 121620335
             }
           },
           {
@@ -449,7 +449,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 184564889
+              "duration": 189469454
             }
           },
           {
@@ -462,7 +462,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 303972
+              "duration": 275024
             }
           },
           {
@@ -475,7 +475,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 694664,
+              "duration": 585055,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -484,7 +484,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 24420262
+              "duration": 21713913
             }
           }
         ],
@@ -508,7 +508,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 125106013
+              "duration": 131003768
             }
           },
           {
@@ -540,7 +540,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 181869265
+              "duration": 192035675
             }
           },
           {
@@ -553,7 +553,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 376748
+              "duration": 275083
             }
           },
           {
@@ -566,7 +566,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 705954,
+              "duration": 703932,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must be at least 8 characters long\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -575,7 +575,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 22182831
+              "duration": 20418533
             }
           }
         ],
@@ -599,7 +599,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 123554840
+              "duration": 123435586
             }
           },
           {
@@ -631,7 +631,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 186105123
+              "duration": 185813347
             }
           },
           {
@@ -644,7 +644,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 375467
+              "duration": 313578
             }
           },
           {
@@ -657,7 +657,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 645158,
+              "duration": 520592,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must contain at least one number\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -666,7 +666,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 24629718
+              "duration": 21700627
             }
           }
         ],
@@ -690,7 +690,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 125456309
+              "duration": 125634737
             }
           },
           {
@@ -722,7 +722,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 178894285
+              "duration": 184450368
             }
           },
           {
@@ -735,7 +735,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 350774
+              "duration": 275604
             }
           },
           {
@@ -748,7 +748,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 833767,
+              "duration": 562382,
               "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must contain at least one special character\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
             }
           },
@@ -757,7 +757,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 26398912
+              "duration": 21696308
             }
           }
         ],
