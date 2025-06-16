@@ -1,8 +1,8 @@
 import { Page } from "@playwright/test";
 import { AccountRegistrationDriver } from "../account_registration_driver.interface";
 import { RegistrationDetails, RegistrationResult } from "../../dsl/models/registration";
-import { PageFactory } from "./pages/page.factory";
-import { AccountRegistrationPage } from "./pages/account_registration.page";
+import { PageFactory } from "@/shared/pages/page.factory";
+import { AccountRegistrationPage } from "@/acceptance/drivers/web/pages/account_registration.page";
 import { CONFIG } from "../../../config/test.config";
 
 export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
