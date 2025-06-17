@@ -14,18 +14,23 @@ services:
       - kudos_wall_network
 
   backend:
-    image: ghcr.io/chirag1507/digital-kudos-wall-backend:latest
+    build:
+      context: ../digital-kudos-wall-backend
+      dockerfile: Dockerfile
     ports:
       - "3001:3001" # Map host port 3001 to container port 3001 (backend's internal port)
     environment:
-      # Assuming the backend listens on port 3001 internally.
-      # If it's configured by an env var like PORT, uncomment and set:
       - PORT=3001
-      # Add any other necessary backend environment variables here
-      # e.g., - DATABASE_URL=...
+      - NODE_ENV=development
+      - DATABASE_URL=file:/data/dev.db
     networks:
       - kudos_wall_network
+    volumes:
+      - backend_data:/data
 
 networks:
   kudos_wall_network:
     driver: bridge
+
+volumes:
+  backend_data:

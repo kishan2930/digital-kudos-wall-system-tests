@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  test_runner:
+    image: mcr.microsoft.com/playwright:v1.44.0-jammy
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["npm", "run", "test:smoke"]
+    networks:
+      - kudos_wall_network
+    depends_on:
+      - frontend
+      - backend
+
+networks:
+  kudos_wall_network:
+    external: true
+    name: digital-kudos-wall-system-tests_kudos_wall_network
