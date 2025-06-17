@@ -26,6 +26,7 @@ services:
     volumes:
       - ./backend-data/prisma:/app/prisma
     user: "1000:1000"
+    init: true
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
       interval: 10s
@@ -37,7 +38,7 @@ services:
     command: >
       /bin/sh -c "
         npx prisma migrate deploy &&
-        node dist/index.js
+        exec node dist/index.js
       "
 
 networks:
