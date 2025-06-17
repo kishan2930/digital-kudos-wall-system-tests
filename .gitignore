@@ -22,4 +22,7 @@ playwright/.cache/
 # Environment variables
 .env
 .env.*
-!.env.example 
+!.env.example
+
+# Backend data directory
+backend-data/ 

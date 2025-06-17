@@ -2,35 +2,47 @@ version: "3.8"
 
 services:
   frontend:
-    image: ghcr.io/chirag1507/digital-kudos-wall-frontend:latest
+    image: ${FRONTEND_IMAGE_URI_WITH_TAG}
     ports:
       - "3000:80" # Map host port 3000 to container port 80 (Nginx default)
     # If the frontend needs to know the backend's URL via an env var in the future, add it here.
     # environment:
     #   - VITE_API_BASE_URL=http://backend:3001
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     networks:
       - kudos_wall_network
 
   backend:
-    build:
-      context: ../digital-kudos-wall-backend
-      dockerfile: Dockerfile
+    image: ${BACKEND_IMAGE_URI_WITH_TAG}
     ports:
       - "3001:3001" # Map host port 3001 to container port 3001 (backend's internal port)
     environment:
       - PORT=3001
-      - NODE_ENV=development
-      - DATABASE_URL=file:/data/dev.db
+      - NODE_ENV=test
+      - DATABASE_URL=file:/app/prisma/test.db
+      - DEBUG=*
+    volumes:
+      - ./backend-data/prisma:/app/prisma
+    user: "1001:1001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
     networks:
       - kudos_wall_network
-    volumes:
-      - backend_data:/data
+    command: >
+      /bin/sh -c "
+        npx prisma migrate deploy &&
+        node dist/index.js
+      "
 
 networks:
   kudos_wall_network:
     driver: bridge
-
 volumes:
   backend_data:
+
