@@ -13,8 +13,8 @@ interface EnvironmentConfig {
 }
 
 const DEFAULT_CONFIG: EnvironmentConfig = {
-  baseUrl: "http://localhost:3000",
-  apiUrl: "http://localhost:3001/api/v1",
+  baseUrl: "http://frontend",
+  apiUrl: "http://backend:3001/api/v1",
 };
 
 const UAT_CONFIG: EnvironmentConfig = {
@@ -38,30 +38,55 @@ const PROD_CONFIG: EnvironmentConfig = {
 
 const getEnvironment = (): TestEnvironment => {
   const env = process.env.TEST_ENV?.toLowerCase();
+  console.log(`Current TEST_ENV: ${env}`);
+  console.log(`All environment variables:`, {
+    TEST_ENV: process.env.TEST_ENV,
+    CI_BASE_URL: process.env.CI_BASE_URL,
+    APP_BACKEND_URL: process.env.APP_BACKEND_URL,
+    NODE_ENV: process.env.NODE_ENV,
+  });
+
   switch (env) {
     case TEST_ENV.UAT:
+      console.log("Using UAT environment");
       return TEST_ENV.UAT;
     case TEST_ENV.DEV:
+      console.log("Using DEV environment");
       return TEST_ENV.DEV;
     case TEST_ENV.PROD:
+      console.log("Using PROD environment");
       return TEST_ENV.PROD;
     default:
+      console.log("Using LOCAL environment (default)");
       return TEST_ENV.LOCAL;
   }
 };
 
 const getConfig = (): EnvironmentConfig => {
   const environment = getEnvironment();
+  let config: EnvironmentConfig;
+
   switch (environment) {
     case TEST_ENV.UAT:
-      return UAT_CONFIG;
+      config = UAT_CONFIG;
+      break;
     case TEST_ENV.DEV:
-      return DEV_CONFIG;
+      config = DEV_CONFIG;
+      break;
     case TEST_ENV.PROD:
-      return PROD_CONFIG;
+      config = PROD_CONFIG;
+      break;
     default:
-      return DEFAULT_CONFIG;
+      config = DEFAULT_CONFIG;
   }
+
+  console.log("Using configuration:", {
+    environment,
+    baseUrl: config.baseUrl,
+    apiUrl: config.apiUrl,
+  });
+
+  return config;
 };
 
 export const CONFIG = getConfig();
