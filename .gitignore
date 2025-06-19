@@ -25,4 +25,11 @@ playwright/.cache/
 !.env.example
 
 # Backend data directory
-backend-data/ 
+backend-data/
+
+# Ignore test database files
+backend-data/prisma/*.db
+backend-data/prisma/*.db-journal
+
+# Don't ignore the directory structure
+!backend-data/prisma/.gitkeep 

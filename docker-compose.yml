@@ -4,10 +4,7 @@ services:
   frontend:
     image: ${FRONTEND_IMAGE_URI_WITH_TAG}
     ports:
-      - "3000:80" # Map host port 3000 to container port 80 (Nginx default)
-    # If the frontend needs to know the backend's URL via an env var in the future, add it here.
-    # environment:
-    #   - VITE_API_BASE_URL=http://backend:3001
+      - "3000:80"
     depends_on:
       backend:
         condition: service_healthy
@@ -17,7 +14,7 @@ services:
   backend:
     image: ${BACKEND_IMAGE_URI_WITH_TAG}
     ports:
-      - "3001:3001" # Map host port 3001 to container port 3001 (backend's internal port)
+      - "3001:3001"
     environment:
       - PORT=3001
       - NODE_ENV=test
@@ -25,8 +22,6 @@ services:
       - DEBUG=*
     volumes:
       - ./backend-data/prisma:/app/prisma
-    user: "1000:1000"
-    init: true
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
       interval: 10s
@@ -36,7 +31,7 @@ services:
     networks:
       - kudos_wall_network
     command: >
-      /bin/sh -c "
+      sh -c "
         npx prisma migrate deploy &&
         exec node dist/index.js
       "
@@ -46,4 +41,3 @@ networks:
     driver: bridge
 volumes:
   backend_data:
-
