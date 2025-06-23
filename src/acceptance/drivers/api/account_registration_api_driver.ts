@@ -1,17 +1,14 @@
 import { request } from "@playwright/test";
 import { AccountRegistrationDriver } from "../account_registration_driver.interface";
 import { RegistrationDetails, RegistrationResult } from "../../dsl/models/registration";
+import { CONFIG } from "../../../config/test.config";
 
 export class AccountRegistrationApiDriver implements AccountRegistrationDriver {
-  private readonly baseUrl: string;
-
-  constructor() {
-    this.baseUrl = process.env.API_BASE_URL || "http://localhost:3000/api";
-  }
+  constructor() {}
 
   async checkServiceHealth(): Promise<void> {
     const context = await request.newContext();
-    const response = await context.get(`${this.baseUrl}/health/registration`);
+    const response = await context.get(`${CONFIG.apiUrl}/health`);
     if (response.status() !== 200) {
       throw new Error("Registration service is not available");
     }
@@ -19,7 +16,7 @@ export class AccountRegistrationApiDriver implements AccountRegistrationDriver {
 
   async createTestUser(details: RegistrationDetails): Promise<void> {
     const context = await request.newContext();
-    const response = await context.post(`${this.baseUrl}/test/users`, {
+    const response = await context.post(`${CONFIG.apiUrl}/test-support/users`, {
       data: {
         name: details.name,
         email: details.email,
@@ -35,7 +32,7 @@ export class AccountRegistrationApiDriver implements AccountRegistrationDriver {
   async register(details: RegistrationDetails): Promise<RegistrationResult> {
     try {
       const context = await request.newContext();
-      const response = await context.post(`${this.baseUrl}/register`, {
+      const response = await context.post(`${CONFIG.apiUrl}/users/register`, {
         data: details,
       });
 
@@ -53,7 +50,7 @@ export class AccountRegistrationApiDriver implements AccountRegistrationDriver {
 
   async verifyConfirmationEmail(email: string): Promise<boolean> {
     const context = await request.newContext();
-    const response = await context.get(`${this.baseUrl}/test/confirmations`, {
+    const response = await context.get(`${CONFIG.apiUrl}/test-support/confirmations`, {
       params: { email },
     });
 
@@ -65,6 +62,14 @@ export class AccountRegistrationApiDriver implements AccountRegistrationDriver {
   }
 
   async cleanup(): Promise<void> {
-    // Implement any necessary cleanup for API driver
+    const context = await request.newContext();
+    try {
+      const response = await context.delete(`${CONFIG.apiUrl}/test-support/cleanup`);
+      if (!response.ok()) {
+        console.warn(`Cleanup failed with status ${response.status()}: ${await response.text()}`);
+      }
+    } catch (error) {
+      console.warn("Failed to cleanup test data:", error);
+    }
   }
 }

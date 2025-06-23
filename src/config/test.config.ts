@@ -14,21 +14,17 @@ interface EnvironmentConfig {
 
 const DEFAULT_CONFIG: EnvironmentConfig = {
   baseUrl: "http://frontend",
-  apiUrl: "http://backend:3001/api/v1",
+  apiUrl: "http://backend:3001",
 };
 
 const UAT_CONFIG: EnvironmentConfig = {
   baseUrl: process.env.CI_BASE_URL || "http://uat.digital-kudos-wall.com",
-  apiUrl: process.env.APP_BACKEND_URL
-    ? `${process.env.APP_BACKEND_URL}/api/v1`
-    : "http://uat.digital-kudos-wall.com:3001/api/v1",
+  apiUrl: process.env.APP_BACKEND_URL || "http://uat.digital-kudos-wall.com:3001",
 };
 
 const DEV_CONFIG: EnvironmentConfig = {
   baseUrl: process.env.CI_BASE_URL || "http://dev.digital-kudos-wall.com",
-  apiUrl: process.env.APP_BACKEND_URL
-    ? `${process.env.APP_BACKEND_URL}/api/v1`
-    : "http://dev.digital-kudos-wall.com:3001/api/v1",
+  apiUrl: process.env.APP_BACKEND_URL || "http://dev.digital-kudos-wall.com:3001",
 };
 
 const PROD_CONFIG: EnvironmentConfig = {
