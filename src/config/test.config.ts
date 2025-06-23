@@ -13,8 +13,8 @@ interface EnvironmentConfig {
 }
 
 const DEFAULT_CONFIG: EnvironmentConfig = {
-  baseUrl: "http://frontend",
-  apiUrl: "http://backend:3001",
+  baseUrl: "http://localhost:3000",
+  apiUrl: "http://localhost:3001",
 };
 
 const UAT_CONFIG: EnvironmentConfig = {

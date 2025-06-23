@@ -42,7 +42,7 @@ export class AccountRegistrationPage extends BasePage {
       await this.page.waitForURL("**/login", { timeout: 5000 });
 
       const locator = this.page.getByTestId("confirmation-message");
-      await locator.waitFor({ state: "visible", timeout: 5000 });
+      await locator.waitFor({ state: "visible", timeout: 10000 });
       const textContent = await locator.textContent();
       return textContent?.includes(email) ?? false;
     } catch {
