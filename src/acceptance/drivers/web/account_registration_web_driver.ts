@@ -33,11 +33,18 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   }
 
   async register(details: RegistrationDetails): Promise<RegistrationResult> {
+    console.log(`[DEBUG] Starting registration for email: ${details.email}`);
     await this.accountRegistrationPage.navigate();
+    console.log("[DEBUG] Navigation complete");
+
     await this.accountRegistrationPage.registerUser(details);
+    console.log("[DEBUG] Registration form submitted");
 
     const errorMessage = await this.accountRegistrationPage.getErrorMessage();
+    console.log(`[DEBUG] Initial error message check: ${errorMessage}`);
+
     if (errorMessage) {
+      console.log(`[DEBUG] Returning early with error: ${errorMessage}`);
       return {
         success: false,
         errorMessage,
@@ -45,9 +52,21 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
     }
 
     const isSuccessful = await this.accountRegistrationPage.isRegistrationSuccessful();
+    console.log(`[DEBUG] Registration success check: ${isSuccessful}`);
+
+    if (!isSuccessful) {
+      const failureMessage = await this.accountRegistrationPage.getErrorMessage();
+      console.log(`[DEBUG] Registration failed. Error message: ${failureMessage}`);
+      return {
+        success: false,
+        errorMessage: failureMessage || "Registration failed",
+      };
+    }
+
+    console.log("[DEBUG] Registration completed successfully");
     return {
-      success: isSuccessful,
-      errorMessage: isSuccessful ? undefined : "Registration failed",
+      success: true,
+      errorMessage: undefined,
     };
   }
 
