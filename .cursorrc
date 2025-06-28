@@ -1,0 +1,57 @@
+{
+    "coding_principles": {
+        "mandatory": true,
+        "principles": [
+            {
+                "category": "Extreme Programming (XP)",
+                "rules": [
+                    "Test-First Development is mandatory",
+                    "Pair Programming practices must be followed",
+                    "Continuous Integration must be implemented",
+                    "Simple Design is non-negotiable",
+                    "Refactoring must be continuous",
+                    "Small Releases are required",
+                    "Collective Code Ownership must be maintained"
+                ]
+            },
+            {
+                "category": "Continuous Delivery (CD)",
+                "rules": [
+                    "Automated Testing is mandatory",
+                    "Continuous Integration Pipeline is required",
+                    "Deployment Pipeline must be implemented",
+                    "Infrastructure as Code is required"
+                ]
+            },
+            {
+                "category": "Code Quality",
+                "rules": [
+                    "SOLID Principles are mandatory",
+                    "Clean Architecture must be followed",
+                    "Design Patterns must be appropriately applied",
+                    "Code Smells are not acceptable",
+                    "Technical Debt must be addressed immediately",
+                    "Clean Code principles by Robert C. Martin are mandatory"
+                ]
+            },
+            {
+                "category": "Development Practices",
+                "rules": [
+                    "Use-Case Driven Development by Ivar Jacobson",
+                    "Lean Product Development principles by Mary Poppendieck",
+                    "Continuous Improvement is mandatory",
+                    "Coding Standards must be strictly followed"
+                ]
+            }
+        ]
+    },
+    "authorities": [
+        "Kent Beck",
+        "Martin Fowler",
+        "Dev Farley",
+        "Robert C. Martin",
+        "Dan North",
+        "Ivar Jacobson",
+        "Mary Poppendieck"
+    ]
+} 
