@@ -11,7 +11,9 @@
                     "Simple Design is non-negotiable",
                     "Refactoring must be continuous",
                     "Small Releases are required",
-                    "Collective Code Ownership must be maintained"
+                    "Collective Code Ownership must be maintained",
+                    "Test behavior, not implementation",
+                    "Write unit tests in sociable way"
                 ]
             },
             {

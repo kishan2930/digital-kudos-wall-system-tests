@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 139239193
+              "duration": 124766933
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 96568901
+              "duration": 177560842
             }
           },
           {
@@ -59,7 +59,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 148889034
+              "duration": 272865109
             }
           },
           {
@@ -71,9 +71,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:52"
             },
             "result": {
-              "status": "failed",
-              "duration": 2892131,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:57:38)"
+              "status": "passed",
+              "duration": 1080658
             }
           },
           {
@@ -85,8 +84,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:60"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 15969293
             }
           },
           {
@@ -94,7 +93,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 35949703
+              "duration": 46660648
             }
           }
         ],
@@ -118,7 +117,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 126335941
+              "duration": 114472745
             }
           },
           {
@@ -131,7 +130,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 91870155
+              "duration": 182886177
             }
           },
           {
@@ -143,9 +142,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:13"
             },
             "result": {
-              "status": "failed",
-              "duration": 15030616,
-              "error_message": "Error: Failed to ensure user exists: Error: Failed to create test user via API. Status: 404, Body: {\"error\":\"Not Found\",\"message\":\"Route /api/v1/test-support/users not found\",\"timestamp\":\"2025-06-16T08:15:33.704Z\"}\n    at AccountRegistrationDSL.ensureUserExists (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/dsl/account_registration_dsl.ts:28:13)\n    at async CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:20:5)"
+              "status": "passed",
+              "duration": 80091270
             }
           },
           {
@@ -176,8 +174,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 195228499
             }
           },
           {
@@ -189,8 +187,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 294806
             }
           },
           {
@@ -202,8 +200,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 241496
             }
           },
           {
@@ -211,7 +209,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 25983048
+              "duration": 48773333
             }
           }
         ],
@@ -235,7 +233,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 121430322
+              "duration": 112713126
             }
           },
           {
@@ -267,7 +265,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 190155299
+              "duration": 271637635
             }
           },
           {
@@ -280,7 +278,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 432264
+              "duration": 491518
             }
           },
           {
@@ -292,9 +290,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 1822744,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 246895
             }
           },
           {
@@ -302,7 +299,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 23089754
+              "duration": 26769586
             }
           }
         ],
@@ -326,7 +323,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 122662933
+              "duration": 113283673
             }
           },
           {
@@ -358,7 +355,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 197647921
+              "duration": 271879371
             }
           },
           {
@@ -371,7 +368,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 296735
+              "duration": 409633
             }
           },
           {
@@ -383,9 +380,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 525541,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 189918
             }
           },
           {
@@ -393,7 +389,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 23690610
+              "duration": 26815133
             }
           }
         ],
@@ -417,7 +413,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 121620335
+              "duration": 110377772
             }
           },
           {
@@ -449,7 +445,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 189469454
+              "duration": 284226754
             }
           },
           {
@@ -462,7 +458,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 275024
+              "duration": 596354
             }
           },
           {
@@ -474,9 +470,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 585055,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Invalid email format\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 279867
             }
           },
           {
@@ -484,7 +479,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 21713913
+              "duration": 22489934
             }
           }
         ],
@@ -508,7 +503,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 131003768
+              "duration": 114041482
             }
           },
           {
@@ -540,7 +535,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 192035675
+              "duration": 274844565
             }
           },
           {
@@ -553,7 +548,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 275083
+              "duration": 286579
             }
           },
           {
@@ -565,9 +560,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 703932,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must be at least 8 characters long\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 175862
             }
           },
           {
@@ -575,7 +569,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 20418533
+              "duration": 26182990
             }
           }
         ],
@@ -599,7 +593,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 123435586
+              "duration": 113584039
             }
           },
           {
@@ -631,7 +625,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 185813347
+              "duration": 274934847
             }
           },
           {
@@ -644,7 +638,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 313578
+              "duration": 260040
             }
           },
           {
@@ -656,9 +650,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 520592,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must contain at least one number\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 172395
             }
           },
           {
@@ -666,7 +659,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 21700627
+              "duration": 24061979
             }
           }
         ],
@@ -690,7 +683,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 125634737
+              "duration": 112982766
             }
           },
           {
@@ -722,7 +715,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 184450368
+              "duration": 278832449
             }
           },
           {
@@ -735,7 +728,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 275604
+              "duration": 380177
             }
           },
           {
@@ -747,9 +740,8 @@
               "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
             },
             "result": {
-              "status": "failed",
-              "duration": 562382,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Password must contain at least one special character\"\u001b[39m\nReceived: \u001b[31m\"Server error: 404 Not Found\"\u001b[39m\n    at Proxy.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at CustomWorld.<anonymous> (/home/av19/Projects/digital-kudos-wall-system-tests/src/acceptance/step_definitions/account_registration.steps.ts:81:43)"
+              "status": "passed",
+              "duration": 202613
             }
           },
           {
@@ -757,7 +749,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 21696308
+              "duration": 22720959
             }
           }
         ],
@@ -776,5 +768,332 @@
     "name": "Account Registration",
     "tags": [],
     "uri": "src/acceptance/features/account_registration.feature"
+  },
+  {
+    "description": "  As a registered user\n  I want to log in to the Digital Kudos Wall\n  So that I can view and give kudos to my colleagues",
+    "elements": [
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Successful login with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 115014659
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 176837480
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "a user exists with email \"user@example.com\" and password \"SecurePass1!\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78232014
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "user@example.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 14,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 159374670
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the login should be successful",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 787321350
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the user should be redirected to the kudos wall",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4228527
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 46774855
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;login-attempt-with-incorrect-credentials",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Login attempt with incorrect credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 113742260
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 178443711
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "user@example.com",
+                      "WrongPass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 22,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 158866130
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the login should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5001931863
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "the login error should be \"Invalid email or password\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9543923
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 24365953
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;login-attempt-with-non-existent-email",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Login attempt with non-existent email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 114609500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 177270102
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "nonexistent@test.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 30,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 168926604
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "the login should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5001255593
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "the login error should be \"Invalid email or password\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5883729
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 21252180
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 28
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "user-login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "User Login",
+    "tags": [],
+    "uri": "src/acceptance/features/login.feature"
   }
 ]
