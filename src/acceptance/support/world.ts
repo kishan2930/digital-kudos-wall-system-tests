@@ -7,13 +7,18 @@ import { validateFeatureTags } from "../../types/feature.validator";
 import { AccountRegistrationDriver } from "../drivers/account_registration_driver.interface";
 import { AccountRegistrationDSL } from "../dsl/account_registration_dsl";
 import { AccountRegistrationApiDriver } from "../drivers/api/account_registration_api_driver";
+import { LoginWebDriver } from "../drivers/web/login_web_driver";
+import { LoginDSL } from "../dsl/login_dsl";
+import { LoginDriver } from "../drivers/login_driver.interface";
 
 export class CustomWorld extends World {
-  public dsl: AccountRegistrationDSL | null = null;
+  public accountRegistrationDSL: AccountRegistrationDSL | null = null;
+  public loginDSL: LoginDSL | null = null;
   protected page: Page | null = null;
   protected browser: Browser | null = null;
   private context: BrowserContext | null = null;
-  private driver?: AccountRegistrationDriver;
+  private accountRegistrationDriver?: AccountRegistrationDriver;
+  private loginDriver?: LoginDriver;
   protected scenario?: ITestCaseHookParameter;
 
   constructor(options: IWorldOptions) {
@@ -43,19 +48,27 @@ export class CustomWorld extends World {
         "user-agent": "avesta-ua",
       });
 
-      this.driver = new AccountRegistrationWebDriver(this.page);
+      this.accountRegistrationDriver = new AccountRegistrationWebDriver(this.page);
+      this.loginDriver = new LoginWebDriver(this.page);
     } else if (isApiTest) {
-      this.driver = new AccountRegistrationApiDriver();
+      this.accountRegistrationDriver = new AccountRegistrationApiDriver();
+      // TODO: Add API driver for login when needed
     } else {
       throw new Error("Scenario must be tagged with either @ui or @api");
     }
 
-    this.dsl = new AccountRegistrationDSL(this.driver);
+    this.accountRegistrationDSL = new AccountRegistrationDSL(this.accountRegistrationDriver);
+    if (this.loginDriver) {
+      this.loginDSL = new LoginDSL(this.loginDriver);
+    }
   }
 
   async destroy() {
-    if (this.driver) {
-      await this.driver.cleanup();
+    if (this.accountRegistrationDriver) {
+      await this.accountRegistrationDriver.cleanup();
+    }
+    if (this.loginDriver) {
+      await this.loginDriver.cleanup();
     }
 
     if (this.page) {

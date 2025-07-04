@@ -1,9 +1,9 @@
 import { Page } from "@playwright/test";
 import { AccountRegistrationDriver } from "../account_registration_driver.interface";
 import { RegistrationDetails, RegistrationResult } from "../../dsl/models/registration";
-import { PageFactory } from "../../../shared/pages/page.factory";
 import { AccountRegistrationPage } from "./pages/account_registration.page";
 import { CONFIG } from "../../../config/test.config";
+import { PageFactory } from "./pages/page.factory";
 
 export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   private readonly accountRegistrationPage: AccountRegistrationPage;
@@ -33,18 +33,11 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   }
 
   async register(details: RegistrationDetails): Promise<RegistrationResult> {
-    console.log(`[DEBUG] Starting registration for email: ${details.email}`);
     await this.accountRegistrationPage.navigate();
-    console.log("[DEBUG] Navigation complete");
-
     await this.accountRegistrationPage.registerUser(details);
-    console.log("[DEBUG] Registration form submitted");
-
     const errorMessage = await this.accountRegistrationPage.getErrorMessage();
-    console.log(`[DEBUG] Initial error message check: ${errorMessage}`);
 
     if (errorMessage) {
-      console.log(`[DEBUG] Returning early with error: ${errorMessage}`);
       return {
         success: false,
         errorMessage,
@@ -52,18 +45,14 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
     }
 
     const isSuccessful = await this.accountRegistrationPage.isRegistrationSuccessful();
-    console.log(`[DEBUG] Registration success check: ${isSuccessful}`);
 
     if (!isSuccessful) {
-      const failureMessage = await this.accountRegistrationPage.getErrorMessage();
-      console.log(`[DEBUG] Registration failed. Error message: ${failureMessage}`);
       return {
         success: false,
-        errorMessage: failureMessage || "Registration failed",
+        errorMessage: "Registration failed",
       };
     }
 
-    console.log("[DEBUG] Registration completed successfully");
     return {
       success: true,
       errorMessage: undefined,
@@ -71,15 +60,29 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   }
 
   async verifyConfirmationEmail(email: string): Promise<boolean> {
-    return this.accountRegistrationPage.isConfirmationEmailSentTo(email);
+    try {
+      const response = await this.page.request.get(`${CONFIG.apiUrl}/test-support/verify-email`, {
+        params: { email },
+      });
+
+      if (!response.ok()) {
+        console.warn(`Failed to verify email via API. Status: ${response.status()}, Body: ${await response.text()}`);
+        return false;
+      }
+
+      const { sent } = await response.json();
+      return sent;
+    } catch (error) {
+      console.warn("Failed to verify email:", error);
+      return false;
+    }
   }
 
   async cleanup(): Promise<void> {
     try {
       const response = await this.page.request.delete(`${CONFIG.apiUrl}/test-support/cleanup`);
-
       if (!response.ok()) {
-        console.warn(`Cleanup failed with status ${response.status()}: ${await response.text()}`);
+        console.warn("Failed to cleanup test data:", await response.text());
       }
     } catch (error) {
       console.warn("Failed to cleanup test data:", error);

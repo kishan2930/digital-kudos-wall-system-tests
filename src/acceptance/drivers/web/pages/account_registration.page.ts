@@ -37,19 +37,6 @@ export class AccountRegistrationPage extends BasePage {
     }
   }
 
-  async isConfirmationEmailSentTo(email: string): Promise<boolean> {
-    try {
-      await this.page.waitForURL("**/login", { timeout: 5000 });
-
-      const locator = this.page.getByTestId("confirmation-message");
-      await locator.waitFor({ state: "visible", timeout: 10000 });
-      const textContent = await locator.textContent();
-      return textContent?.includes(email) ?? false;
-    } catch {
-      return false;
-    }
-  }
-
   protected async waitForPageLoad(): Promise<void> {
     await this.page.waitForSelector('[data-testid="registration-form"]');
   }
