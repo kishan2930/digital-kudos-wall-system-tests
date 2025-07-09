@@ -35,27 +35,23 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   async register(details: RegistrationDetails): Promise<RegistrationResult> {
     await this.accountRegistrationPage.navigate();
     await this.accountRegistrationPage.registerUser(details);
-    const errorMessage = await this.accountRegistrationPage.getErrorMessage();
 
-    if (errorMessage) {
-      return {
-        success: false,
-        errorMessage,
-      };
-    }
-
+    // Wait for either success or error state to be determined
     const isSuccessful = await this.accountRegistrationPage.isRegistrationSuccessful();
 
-    if (!isSuccessful) {
+    if (isSuccessful) {
       return {
-        success: false,
-        errorMessage: "Registration failed",
+        success: true,
+        errorMessage: undefined,
       };
     }
 
+    // If not successful, wait for the error message to appear
+    const errorMessage = await this.accountRegistrationPage.getErrorMessage();
+
     return {
-      success: true,
-      errorMessage: undefined,
+      success: false,
+      errorMessage: errorMessage || "Registration failed",
     };
   }
 

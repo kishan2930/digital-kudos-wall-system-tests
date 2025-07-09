@@ -21,16 +21,20 @@ export class AccountRegistrationPage extends BasePage {
   }
 
   async getErrorMessage(): Promise<string | null> {
-    const errorElement = this.page.getByTestId("error-message");
-    if (await errorElement.isVisible()) {
+    try {
+      const errorElement = this.page.getByTestId("error-message");
+      // Wait for the error message to appear with a reasonable timeout
+      await errorElement.waitFor({ state: "visible", timeout: 10000 });
       return (await errorElement.textContent()) || null;
+    } catch (error) {
+      // If error message element doesn't appear within timeout, return null
+      return null;
     }
-    return null;
   }
 
   async isRegistrationSuccessful(): Promise<boolean> {
     try {
-      await this.page.waitForURL("**/login", { timeout: 5000 });
+      await this.page.waitForURL("**/login", { timeout: 10000 });
       return true;
     } catch (error) {
       return false;
