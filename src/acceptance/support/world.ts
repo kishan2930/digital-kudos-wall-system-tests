@@ -42,7 +42,7 @@ export class CustomWorld extends World {
     if (isUITest) {
       this.browser = await chromium.launch({
         headless: false,
-        slowMo: 100, // Add a small delay to make actions more visible
+        slowMo: 1000, // Add a small delay to make actions more visible
       });
       this.page = await this.browser.newPage();
 
