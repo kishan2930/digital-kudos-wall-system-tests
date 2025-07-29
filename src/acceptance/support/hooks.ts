@@ -4,6 +4,9 @@ import { Logger } from "./logger";
 
 setDefaultTimeout(60 * 1000); // 60 seconds
 
+// Track scenario outline executions to properly number examples
+const scenarioOutlineCounters = new Map<string, number>();
+
 BeforeAll(function() {
   Logger.testSuite("Digital Kudos Wall Acceptance Tests");
 });
@@ -19,77 +22,92 @@ Before(async function (this: CustomWorld, scenario) {
   Logger.feature(featureName);
   Logger.scenario(scenarioName);
   
-  // Simple approach: Extract example values from data tables in steps
-  const steps = scenario.pickle.steps || [];
-  const exampleValues: Record<string, string> = {};
-  let exampleFound = false;
+  // Check if this is truly a scenario outline by looking for specific patterns
+  // Scenario outlines typically have "Scenario Outline:" in the original feature file
+  // and contain examples that get parameterized
+  const isScenarioOutline = scenarioName.includes('invalid email format') || 
+                           scenarioName.includes('invalid password') ||
+                           (scenario.pickle.steps || []).some(step => 
+                             step.text.includes('<') && step.text.includes('>')
+                           );
   
-  steps.forEach(step => {
-    if (step.argument?.dataTable) {
-      const dataTable = step.argument.dataTable;
-      if (dataTable.rows && dataTable.rows.length >= 2) {
-        const headers = dataTable.rows[0].cells.map(cell => cell.value);
-        const values = dataTable.rows[1].cells.map(cell => cell.value);
-        
-        headers.forEach((header, index) => {
-          if (values[index]) {
-            exampleValues[header] = values[index];
-            exampleFound = true;
-          }
-        });
+  if (isScenarioOutline) {
+    const steps = scenario.pickle.steps || [];
+    const exampleValues: Record<string, string> = {};
+    let exampleFound = false;
+    
+    steps.forEach(step => {
+      // Extract values from data tables
+      if (step.argument?.dataTable) {
+        const dataTable = step.argument.dataTable;
+        if (dataTable.rows && dataTable.rows.length >= 2) {
+          const headers = dataTable.rows[0].cells.map(cell => cell.value);
+          const values = dataTable.rows[1].cells.map(cell => cell.value);
+          
+          headers.forEach((header, index) => {
+            if (values[index]) {
+              exampleValues[header] = values[index];
+              exampleFound = true;
+            }
+          });
+        }
       }
-    }
-    
-    // Also extract values from step text that look like they might be examples
-    const stepText = step.text;
-    
-    // Look for email patterns
-    const emailMatch = stepText.match(/([a-zA-Z0-9@._-]+@[a-zA-Z0-9._-]*\.?[a-zA-Z]*)/);
-    if (emailMatch && emailMatch[1] !== 'user@example.com') {
-      exampleValues['email'] = emailMatch[1];
-      exampleFound = true;
-    }
-    
-    // Look for password patterns in quotes
-    const passwordMatch = stepText.match(/"([^"]+)"/);
-    if (passwordMatch && passwordMatch[1] && passwordMatch[1].length < 20) {
-      // Check if it looks like a password (not an error message)
-      if (!passwordMatch[1].includes(' ') || passwordMatch[1].length <= 12) {
-        exampleValues['password'] = passwordMatch[1];
+      
+      // Extract values from step text for scenario outlines
+      const stepText = step.text;
+      
+      // Only extract if step text contains template placeholders or specific values that suggest examples
+      if (stepText.includes('<') && stepText.includes('>')) {
+        // This step has placeholders, skip it
+        return;
+      }
+      
+      // Look for email patterns (but exclude common test emails used in regular scenarios)
+      const emailMatch = stepText.match(/([a-zA-Z0-9@._-]+@[a-zA-Z0-9._-]*\.?[a-zA-Z]*)/);
+      if (emailMatch && emailMatch[1] && 
+          !emailMatch[1].includes('user@example.com') && 
+          !emailMatch[1].includes('existing@example.com')) {
+        exampleValues['email'] = emailMatch[1];
         exampleFound = true;
       }
-    }
+      
+      // Look for specific passwords that are clearly from examples (not regular test data)
+      const passwordMatch = stepText.match(/"([^"]+)"/);
+      if (passwordMatch && passwordMatch[1]) {
+        const password = passwordMatch[1];
+        // Only consider it an example if it's a short/simple password (like from examples)
+        if (['short', 'nodigits', '12345678'].includes(password)) {
+          exampleValues['password'] = password;
+          exampleFound = true;
+        }
+      }
+      
+      // Look for error messages that suggest examples
+      const errorMatch = stepText.match(/should be "([^"]*(?:must|required|invalid|format|character|number)[^"]*)"/i);
+      if (errorMatch && errorMatch[1]) {
+        exampleValues['error_message'] = errorMatch[1];
+        exampleFound = true;
+      }
+    });
     
-    // Look for error messages
-    const errorMatch = stepText.match(/should be "([^"]*(?:must|required|invalid|format|character|number)[^"]*)"/i);
-    if (errorMatch && errorMatch[1]) {
-      exampleValues['error_message'] = errorMatch[1];
-      exampleFound = true;
+    // Only show example data if we found clear example values
+    if (exampleFound && Object.keys(exampleValues).length > 0) {
+      // Track this scenario outline's execution count
+      const scenarioKey = `${featureName}:${scenarioName}`;
+      const currentCount = (scenarioOutlineCounters.get(scenarioKey) || 0) + 1;
+      scenarioOutlineCounters.set(scenarioKey, currentCount);
+      
+      // Determine total examples based on the type of scenario outline
+      let totalExamples = 3; // default
+      
+      if (scenarioName.includes('invalid email format')) {
+        totalExamples = 3; // invalid.email, @example.com, user@
+      } else if (scenarioName.includes('invalid password')) {
+        totalExamples = 3; // short, nodigits, 12345678
+      }
+      
+      Logger.exampleData(exampleValues, currentCount, totalExamples);
     }
-  });
-  
-  // If we found example values, display them
-  if (exampleFound && Object.keys(exampleValues).length > 0) {
-    // Try to determine example index from scenario execution order
-    // This is a rough estimation based on common patterns
-    let exampleIndex = 1;
-    let totalExamples = 3; // Default assumption for most scenario outlines
-    
-    // Try to detect index from email pattern
-    if (exampleValues.email) {
-      if (exampleValues.email.includes('invalid.email')) exampleIndex = 1;
-      else if (exampleValues.email.includes('@example.com') && !exampleValues.email.includes('user@')) exampleIndex = 2;
-      else if (exampleValues.email.includes('user@')) exampleIndex = 3;
-    }
-    
-    // Try to detect index from password pattern
-    if (exampleValues.password) {
-      if (exampleValues.password === 'short') exampleIndex = 1;
-      else if (exampleValues.password === 'nodigits') exampleIndex = 2;
-      else if (exampleValues.password === '12345678') exampleIndex = 3;
-    }
-    
-    Logger.exampleData(exampleValues, exampleIndex, totalExamples);
   }
   
   Logger.log(`Initializing test environment for scenario: ${scenarioName}`);
@@ -131,5 +149,7 @@ After(async function (this: CustomWorld, scenario) {
 });
 
 AfterAll(function() {
+  // Clear the counters for next test run
+  scenarioOutlineCounters.clear();
   Logger.success("🎉 All acceptance tests completed!");
 });

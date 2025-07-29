@@ -1,0 +1,1099 @@
+[
+  {
+    "description": "  As a potential user\n  I want to register for a new account\n  So that I can access the digital kudos wall system",
+    "elements": [
+      {
+        "description": "",
+        "id": "account-registration;users-must-provide-valid-registration-details-to-create-an-account;successful-registration-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Successful registration with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 428927995
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the registration service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1210415575
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@example.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "a user registers with valid details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5213212589
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the registration should be successful",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1547431
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "a confirmation should be sent to \"user@example.com\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20703211
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 99885785
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;users-must-provide-valid-registration-details-to-create-an-account;registration-attempt-with-existing-email",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Registration attempt with existing email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 429301575
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the registration service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1200462853
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "a user exists with name \"Existing User\" and email \"existing@example.com\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 58341630
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Another User",
+                      "existing@example.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 22,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15228605495
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 797183
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "the reason should be \"User with this email already exists\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 391048
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 113906249
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
+        "keyword": "Scenario Outline",
+        "line": 40,
+        "name": "Registration with invalid email format",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 418260222
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "invalid.email",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 32,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15351409727
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 35,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 470529
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the reason should be \"Invalid email format\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 331822
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 113468752
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 30
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
+        "keyword": "Scenario Outline",
+        "line": 41,
+        "name": "Registration with invalid email format",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 403949891
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "@example.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 32,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15412216433
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 35,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 380641
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the reason should be \"Invalid email format\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 308563
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 95510348
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 30
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
+        "keyword": "Scenario Outline",
+        "line": 42,
+        "name": "Registration with invalid email format",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 408051869
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 32,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15333847888
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 35,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 348304
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the reason should be \"Invalid email format\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 847818
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 100256563
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 30
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
+        "keyword": "Scenario Outline",
+        "line": 56,
+        "name": "Registration with invalid password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 416989043
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@example.com",
+                      "short"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 48,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15336929991
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1063701
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "the reason should be \"Password must be at least 8 characters long\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 502656
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 129629669
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 46
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
+        "keyword": "Scenario Outline",
+        "line": 57,
+        "name": "Registration with invalid password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 402313090
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@example.com",
+                      "nodigits"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 48,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15323039823
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 324349
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "the reason should be \"Password must contain at least one number\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 976397
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 97817727
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 46
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
+        "keyword": "Scenario Outline",
+        "line": 58,
+        "name": "Registration with invalid password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 396064337
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@example.com",
+                      "12345678"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 48,
+            "name": "a user registers with details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15394939256
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the registration should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 353333
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "the reason should be \"Password must contain at least one special character\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 196676
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 95696814
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 46
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "account-registration",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Account Registration",
+    "tags": [],
+    "uri": "src/acceptance/features/account_registration.feature"
+  },
+  {
+    "description": "  As a registered user\n  I want to log in to the Digital Kudos Wall\n  So that I can view and give kudos to my colleagues",
+    "elements": [
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Successful login with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 409766307
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1197922938
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "a user exists with email \"user@example.com\" and password \"SecurePass1!\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62485303
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "user@example.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 14,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4155972533
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the login should be successful",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12372181
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the user should be redirected to the kudos wall",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9624437
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 100270312
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;login-attempt-with-incorrect-credentials",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Login attempt with incorrect credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 413697459
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1194559797
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "user@example.com",
+                      "WrongPass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 22,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4160359598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the login should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5001474427
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "the login error should be \"Invalid email or password\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8503558
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 111848544
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login;users-must-provide-valid-credentials-to-log-in;login-attempt-with-non-existent-email",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Login attempt with non-existent email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 408801618
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the login service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1206002818
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "nonexistent@test.com",
+                      "SecurePass1!"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 30,
+            "name": "the user logs in with:",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4170382145
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "the login should be rejected",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5002013125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "the login error should be \"Invalid email or password\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8771544
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 91835253
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 28
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "user-login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "User Login",
+    "tags": [],
+    "uri": "src/acceptance/features/login.feature"
+  }
+]
