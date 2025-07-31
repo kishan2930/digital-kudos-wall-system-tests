@@ -9,12 +9,17 @@ Feature: Account Registration
       Given the registration service is available
 
     @ui
-    Scenario: Successful registration with valid credentials
+    Scenario Outline: Successful registration with valid credentials
       When a user registers with valid details:
-        | Name      | Email            | Password     |
-        | Test User | user@example.com | SecurePass1! |
+        | Name      | Email            | Password     | IsTeamLeader   |
+        | Test User | user@example.com | SecurePass1! | <isTeamLeader> |
       Then the registration should be successful
       And a confirmation should be sent to "user@example.com"
+
+      Examples:
+        | isTeamLeader |
+        | true         |
+        | false        |
 
     @ui
     Scenario: Registration attempt with existing email

@@ -1,6 +1,9 @@
 import { Page } from "@playwright/test";
 import { AccountRegistrationDriver } from "../account_registration_driver.interface";
-import { RegistrationDetails, RegistrationResult } from "../../dsl/models/registration";
+import {
+  RegistrationDetails,
+  RegistrationResult,
+} from "../../dsl/models/registration";
 import { AccountRegistrationPage } from "./pages/account_registration.page";
 import { CONFIG } from "../../../config/test.config";
 import { PageFactory } from "./pages/page.factory";
@@ -9,7 +12,8 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   private readonly accountRegistrationPage: AccountRegistrationPage;
 
   constructor(private readonly page: Page) {
-    this.accountRegistrationPage = PageFactory.createAccountRegistrationPage(page);
+    this.accountRegistrationPage =
+      PageFactory.createAccountRegistrationPage(page);
   }
 
   async checkServiceHealth(): Promise<void> {
@@ -17,13 +21,17 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
   }
 
   async createTestUser(details: RegistrationDetails): Promise<void> {
-    const response = await this.page.request.post(`${CONFIG.apiUrl}/test-support/users`, {
-      data: {
-        name: details.name,
-        email: details.email,
-        password: details.password,
-      },
-    });
+    const response = await this.page.request.post(
+      `${CONFIG.apiUrl}/test-support/users`,
+      {
+        data: {
+          name: details.name,
+          email: details.email,
+          password: details.password,
+          roleId: details.roleId,
+        },
+      }
+    );
 
     if (!response.ok()) {
       throw new Error(
@@ -37,7 +45,8 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
     await this.accountRegistrationPage.registerUser(details);
 
     // Wait for either success or error state to be determined
-    const isSuccessful = await this.accountRegistrationPage.isRegistrationSuccessful();
+    const isSuccessful =
+      await this.accountRegistrationPage.isRegistrationSuccessful();
 
     if (isSuccessful) {
       return {
@@ -57,12 +66,17 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
 
   async verifyConfirmationEmail(email: string): Promise<boolean> {
     try {
-      const response = await this.page.request.get(`${CONFIG.apiUrl}/test-support/verify-email`, {
-        params: { email },
-      });
+      const response = await this.page.request.get(
+        `${CONFIG.apiUrl}/test-support/verify-email`,
+        {
+          params: { email },
+        }
+      );
 
       if (!response.ok()) {
-        console.warn(`Failed to verify email via API. Status: ${response.status()}, Body: ${await response.text()}`);
+        console.warn(
+          `Failed to verify email via API. Status: ${response.status()}, Body: ${await response.text()}`
+        );
         return false;
       }
 
@@ -76,7 +90,9 @@ export class AccountRegistrationWebDriver implements AccountRegistrationDriver {
 
   async cleanup(): Promise<void> {
     try {
-      const response = await this.page.request.delete(`${CONFIG.apiUrl}/test-support/cleanup`);
+      const response = await this.page.request.delete(
+        `${CONFIG.apiUrl}/test-support/cleanup`
+      );
       if (!response.ok()) {
         console.warn("Failed to cleanup test data:", await response.text());
       }

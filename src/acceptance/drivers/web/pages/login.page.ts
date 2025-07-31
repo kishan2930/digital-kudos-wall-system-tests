@@ -32,9 +32,14 @@ export class LoginPage extends BasePage {
 
   async isKudosWallVisible(): Promise<boolean> {
     try {
-      await this.page.waitForSelector(this.kudosWallContainer, { timeout: 5000 });
+      await this.page.waitForSelector(this.kudosWallContainer, {
+        timeout: 5000,
+      });
       const url = this.page.url();
-      return url.includes("/kudos") && (await this.page.isVisible(this.kudosWallContainer));
+      return (
+        url.includes("/kudos") &&
+        (await this.page.isVisible(this.kudosWallContainer))
+      );
     } catch {
       return false;
     }

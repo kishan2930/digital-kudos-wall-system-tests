@@ -10,7 +10,7 @@ Feature: User Login
 
     @ui
     Scenario: Successful login with valid credentials
-      Given a user exists with email "user@example.com" and password "SecurePass1!"
+      # Given a user exists with email "user@example.com" and password "SecurePass1!"
       When the user logs in with:
         | Email            | Password     |
         | user@example.com | SecurePass1! |

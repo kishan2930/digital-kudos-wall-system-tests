@@ -5,8 +5,8 @@
       {
         "description": "",
         "id": "account-registration;users-must-provide-valid-registration-details-to-create-an-account;successful-registration-with-valid-credentials",
-        "keyword": "Scenario",
-        "line": 12,
+        "keyword": "Scenario Outline",
+        "line": 21,
         "name": "Successful registration with valid credentials",
         "steps": [
           {
@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 428927995
+              "duration": 446341999
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1210415575
+              "duration": 1236165857
             }
           },
           {
@@ -38,14 +38,16 @@
                     "cells": [
                       "Name",
                       "Email",
-                      "Password"
+                      "Password",
+                      "IsTeamLeader"
                     ]
                   },
                   {
                     "cells": [
                       "Test User",
                       "user@example.com",
-                      "SecurePass1!"
+                      "SecurePass1!",
+                      "true"
                     ]
                   }
                 ]
@@ -55,11 +57,11 @@
             "line": 13,
             "name": "a user registers with valid details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:24"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:33"
             },
             "result": {
               "status": "passed",
-              "duration": 5213212589
+              "duration": 6268172894
             }
           },
           {
@@ -68,11 +70,11 @@
             "line": 16,
             "name": "the registration should be successful",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:52"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:79"
             },
             "result": {
               "status": "passed",
-              "duration": 1547431
+              "duration": 1634172
             }
           },
           {
@@ -81,11 +83,11 @@
             "line": 17,
             "name": "a confirmation should be sent to \"user@example.com\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:60"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:91"
             },
             "result": {
               "status": "passed",
-              "duration": 20703211
+              "duration": 19197432
             }
           },
           {
@@ -93,7 +95,112 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 99885785
+              "duration": 114024656
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-registration;users-must-provide-valid-registration-details-to-create-an-account;successful-registration-with-valid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 22,
+        "name": "Successful registration with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 416594037
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the registration service is available",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1256267746
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "Email",
+                      "Password",
+                      "IsTeamLeader"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test User",
+                      "user@example.com",
+                      "SecurePass1!",
+                      "false"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "a user registers with valid details:",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6210059564
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the registration should be successful",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 402851
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "a confirmation should be sent to \"user@example.com\"",
+            "match": {
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8468178
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 115350894
             }
           }
         ],
@@ -109,7 +216,7 @@
         "description": "",
         "id": "account-registration;users-must-provide-valid-registration-details-to-create-an-account;registration-attempt-with-existing-email",
         "keyword": "Scenario",
-        "line": 20,
+        "line": 25,
         "name": "Registration attempt with existing email",
         "steps": [
           {
@@ -117,7 +224,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 429301575
+              "duration": 424495725
             }
           },
           {
@@ -130,20 +237,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1200462853
+              "duration": 1223888124
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 21,
+            "line": 26,
             "name": "a user exists with name \"Existing User\" and email \"existing@example.com\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:13"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 58341630
+              "duration": 58280945
             }
           },
           {
@@ -168,40 +275,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 22,
+            "line": 27,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15228605495
+              "duration": 16280877227
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 25,
+            "line": 30,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 797183
+              "duration": 466965
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 26,
+            "line": 31,
             "name": "the reason should be \"User with this email already exists\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 391048
+              "duration": 279021
             }
           },
           {
@@ -209,14 +316,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 113906249
+              "duration": 111580593
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 19
+            "line": 24
           }
         ],
         "type": "scenario"
@@ -225,7 +332,7 @@
         "description": "",
         "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
         "keyword": "Scenario Outline",
-        "line": 40,
+        "line": 45,
         "name": "Registration with invalid email format",
         "steps": [
           {
@@ -233,7 +340,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 418260222
+              "duration": 432904187
             }
           },
           {
@@ -258,40 +365,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 32,
+            "line": 37,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15351409727
+              "duration": 16396002987
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 40,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 470529
+              "duration": 479258
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 36,
+            "line": 41,
             "name": "the reason should be \"Invalid email format\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 331822
+              "duration": 339573
             }
           },
           {
@@ -299,14 +406,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 113468752
+              "duration": 101623585
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 30
+            "line": 35
           }
         ],
         "type": "scenario"
@@ -315,7 +422,7 @@
         "description": "",
         "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
         "keyword": "Scenario Outline",
-        "line": 41,
+        "line": 46,
         "name": "Registration with invalid email format",
         "steps": [
           {
@@ -323,7 +430,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 403949891
+              "duration": 408625579
             }
           },
           {
@@ -348,40 +455,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 32,
+            "line": 37,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15412216433
+              "duration": 16401361958
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 40,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 380641
+              "duration": 409066
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 36,
+            "line": 41,
             "name": "the reason should be \"Invalid email format\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 308563
+              "duration": 243191
             }
           },
           {
@@ -389,14 +496,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 95510348
+              "duration": 108879718
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 30
+            "line": 35
           }
         ],
         "type": "scenario"
@@ -405,7 +512,7 @@
         "description": "",
         "id": "account-registration;email-must-be-in-a-valid-format;registration-with-invalid-email-format",
         "keyword": "Scenario Outline",
-        "line": 42,
+        "line": 47,
         "name": "Registration with invalid email format",
         "steps": [
           {
@@ -413,7 +520,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 408051869
+              "duration": 417468462
             }
           },
           {
@@ -438,40 +545,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 32,
+            "line": 37,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15333847888
+              "duration": 16392137179
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 40,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 348304
+              "duration": 329237
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 36,
+            "line": 41,
             "name": "the reason should be \"Invalid email format\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 847818
+              "duration": 981986
             }
           },
           {
@@ -479,14 +586,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 100256563
+              "duration": 110876316
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 30
+            "line": 35
           }
         ],
         "type": "scenario"
@@ -495,7 +602,7 @@
         "description": "",
         "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
         "keyword": "Scenario Outline",
-        "line": 56,
+        "line": 61,
         "name": "Registration with invalid password",
         "steps": [
           {
@@ -503,7 +610,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 416989043
+              "duration": 410343648
             }
           },
           {
@@ -528,40 +635,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 48,
+            "line": 53,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15336929991
+              "duration": 16394168081
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 51,
+            "line": 56,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 1063701
+              "duration": 413328
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 52,
+            "line": 57,
             "name": "the reason should be \"Password must be at least 8 characters long\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 502656
+              "duration": 483311
             }
           },
           {
@@ -569,14 +676,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 129629669
+              "duration": 112813390
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 46
+            "line": 51
           }
         ],
         "type": "scenario"
@@ -585,7 +692,7 @@
         "description": "",
         "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
         "keyword": "Scenario Outline",
-        "line": 57,
+        "line": 62,
         "name": "Registration with invalid password",
         "steps": [
           {
@@ -593,7 +700,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 402313090
+              "duration": 411966891
             }
           },
           {
@@ -618,40 +725,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 48,
+            "line": 53,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15323039823
+              "duration": 16389522416
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 51,
+            "line": 56,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 324349
+              "duration": 317224
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 52,
+            "line": 57,
             "name": "the reason should be \"Password must contain at least one number\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 976397
+              "duration": 213648
             }
           },
           {
@@ -659,14 +766,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 97817727
+              "duration": 107341003
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 46
+            "line": 51
           }
         ],
         "type": "scenario"
@@ -675,7 +782,7 @@
         "description": "",
         "id": "account-registration;password-must-meet-security-requirements;registration-with-invalid-password",
         "keyword": "Scenario Outline",
-        "line": 58,
+        "line": 63,
         "name": "Registration with invalid password",
         "steps": [
           {
@@ -683,7 +790,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 396064337
+              "duration": 410419211
             }
           },
           {
@@ -708,40 +815,40 @@
               }
             ],
             "keyword": "When ",
-            "line": 48,
+            "line": 53,
             "name": "a user registers with details:",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:38"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:53"
             },
             "result": {
               "status": "passed",
-              "duration": 15394939256
+              "duration": 16444424869
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 51,
+            "line": 56,
             "name": "the registration should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:68"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:103"
             },
             "result": {
               "status": "passed",
-              "duration": 353333
+              "duration": 449787
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 52,
+            "line": 57,
             "name": "the reason should be \"Password must contain at least one special character\"",
             "match": {
-              "location": "src/acceptance/step_definitions/account_registration.steps.ts:76"
+              "location": "src/acceptance/step_definitions/account_registration.steps.ts:112"
             },
             "result": {
               "status": "passed",
-              "duration": 196676
+              "duration": 371772
             }
           },
           {
@@ -749,14 +856,14 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 95696814
+              "duration": 108615551
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 46
+            "line": 51
           }
         ],
         "type": "scenario"
@@ -784,7 +891,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 409766307
+              "duration": 428617706
             }
           },
           {
@@ -793,11 +900,11 @@
             "line": 9,
             "name": "the login service is available",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+              "location": "src/acceptance/step_definitions/login.steps.ts:5"
             },
             "result": {
               "status": "passed",
-              "duration": 1197922938
+              "duration": 1226699658
             }
           },
           {
@@ -806,11 +913,11 @@
             "line": 13,
             "name": "a user exists with email \"user@example.com\" and password \"SecurePass1!\"",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:8"
+              "location": "src/acceptance/step_definitions/login.steps.ts:9"
             },
             "result": {
               "status": "passed",
-              "duration": 62485303
+              "duration": 59530603
             }
           },
           {
@@ -836,11 +943,11 @@
             "line": 14,
             "name": "the user logs in with:",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+              "location": "src/acceptance/step_definitions/login.steps.ts:20"
             },
             "result": {
               "status": "passed",
-              "duration": 4155972533
+              "duration": 4204825740
             }
           },
           {
@@ -849,11 +956,11 @@
             "line": 17,
             "name": "the login should be successful",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:20"
+              "location": "src/acceptance/step_definitions/login.steps.ts:28"
             },
             "result": {
               "status": "passed",
-              "duration": 12372181
+              "duration": 11958236
             }
           },
           {
@@ -862,11 +969,11 @@
             "line": 18,
             "name": "the user should be redirected to the kudos wall",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:25"
+              "location": "src/acceptance/step_definitions/login.steps.ts:33"
             },
             "result": {
               "status": "passed",
-              "duration": 9624437
+              "duration": 11772664
             }
           },
           {
@@ -874,7 +981,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 100270312
+              "duration": 107803837
             }
           }
         ],
@@ -898,7 +1005,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 413697459
+              "duration": 410952338
             }
           },
           {
@@ -907,11 +1014,11 @@
             "line": 9,
             "name": "the login service is available",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+              "location": "src/acceptance/step_definitions/login.steps.ts:5"
             },
             "result": {
               "status": "passed",
-              "duration": 1194559797
+              "duration": 1183232881
             }
           },
           {
@@ -937,11 +1044,11 @@
             "line": 22,
             "name": "the user logs in with:",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+              "location": "src/acceptance/step_definitions/login.steps.ts:20"
             },
             "result": {
               "status": "passed",
-              "duration": 4160359598
+              "duration": 4190324127
             }
           },
           {
@@ -950,11 +1057,11 @@
             "line": 25,
             "name": "the login should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+              "location": "src/acceptance/step_definitions/login.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 5001474427
+              "duration": 5003027890
             }
           },
           {
@@ -963,11 +1070,11 @@
             "line": 26,
             "name": "the login error should be \"Invalid email or password\"",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+              "location": "src/acceptance/step_definitions/login.steps.ts:43"
             },
             "result": {
               "status": "passed",
-              "duration": 8503558
+              "duration": 10918071
             }
           },
           {
@@ -975,7 +1082,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 111848544
+              "duration": 100316288
             }
           }
         ],
@@ -999,7 +1106,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 408801618
+              "duration": 476176761
             }
           },
           {
@@ -1008,11 +1115,11 @@
             "line": 9,
             "name": "the login service is available",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:4"
+              "location": "src/acceptance/step_definitions/login.steps.ts:5"
             },
             "result": {
               "status": "passed",
-              "duration": 1206002818
+              "duration": 1248105183
             }
           },
           {
@@ -1038,11 +1145,11 @@
             "line": 30,
             "name": "the user logs in with:",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:12"
+              "location": "src/acceptance/step_definitions/login.steps.ts:20"
             },
             "result": {
               "status": "passed",
-              "duration": 4170382145
+              "duration": 4179275564
             }
           },
           {
@@ -1051,11 +1158,11 @@
             "line": 33,
             "name": "the login should be rejected",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:30"
+              "location": "src/acceptance/step_definitions/login.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 5002013125
+              "duration": 5001061684
             }
           },
           {
@@ -1064,11 +1171,11 @@
             "line": 34,
             "name": "the login error should be \"Invalid email or password\"",
             "match": {
-              "location": "src/acceptance/step_definitions/login.steps.ts:35"
+              "location": "src/acceptance/step_definitions/login.steps.ts:43"
             },
             "result": {
               "status": "passed",
-              "duration": 8771544
+              "duration": 10498107
             }
           },
           {
@@ -1076,7 +1183,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 91835253
+              "duration": 97661636
             }
           }
         ],

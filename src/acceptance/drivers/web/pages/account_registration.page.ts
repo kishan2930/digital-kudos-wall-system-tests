@@ -17,6 +17,17 @@ export class AccountRegistrationPage extends BasePage {
     await this.page.getByTestId("name-input").fill(details.name);
     await this.page.getByTestId("email-input").fill(details.email);
     await this.page.getByTestId("password-input").fill(details.password);
+
+    // Check or uncheck the team leader checkbox based on isTeamLeader flag
+    const teamLeaderCheckbox = this.page.getByRole("checkbox", {
+      name: "I am a team leader",
+    });
+    if (details.isTeamLeader) {
+      await teamLeaderCheckbox.check();
+    } else {
+      await teamLeaderCheckbox.uncheck();
+    }
+
     await this.page.getByTestId("register-button").click();
   }
 

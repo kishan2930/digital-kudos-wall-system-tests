@@ -17,13 +17,17 @@ export class LoginWebDriver implements LoginDriver {
   }
 
   async createTestUser(credentials: LoginCredentials): Promise<void> {
-    const response = await this.page.request.post(`${CONFIG.apiUrl}/test-support/users`, {
-      data: {
-        name: "Test User",
-        email: credentials.email,
-        password: credentials.password,
-      },
-    });
+    const response = await this.page.request.post(
+      `${CONFIG.apiUrl}/test-support/users`,
+      {
+        data: {
+          name: "Test User",
+          email: credentials.email,
+          password: credentials.password,
+          roleId: 1,
+        },
+      }
+    );
 
     if (!response.ok()) {
       throw new Error(
@@ -51,7 +55,9 @@ export class LoginWebDriver implements LoginDriver {
 
   async cleanup(): Promise<void> {
     try {
-      const response = await this.page.request.delete(`${CONFIG.apiUrl}/test-support/cleanup`);
+      const response = await this.page.request.delete(
+        `${CONFIG.apiUrl}/test-support/cleanup`
+      );
       if (!response.ok()) {
         console.warn("Failed to cleanup test data:", await response.text());
       }
