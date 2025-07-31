@@ -9,7 +9,7 @@ export class AccountRegistrationPage extends BasePage {
   }
 
   async navigate(): Promise<void> {
-    await this.page.goto(`${CONFIG.baseUrl}/`);
+    await this.page.goto(`${CONFIG.baseUrl}/register`);
     await this.waitForPageLoad();
   }
 
